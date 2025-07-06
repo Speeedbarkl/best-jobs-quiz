@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Best Jobs Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #0077cc;
+    }
+    .quiz-container, .handout {
+      background: white;
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question p {
+      font-weight: bold;
+    }
+    button {
+      background: #0077cc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quiz: Best Jobs in the World</h1>
+
+  <div class="quiz-container" id="quiz">
+    <div class="question">
+      <p>1. What makes a job great?</p>
+      <label><input type="radio" name="q1" value="a"> Just money</label><br>
+      <label><input type="radio" name="q1" value="b"> Good money, interesting, future opportunities, helping people</label><br>
+      <label><input type="radio" name="q1" value="c"> Long working hours</label>
+    </div>
+
+    <div class="question">
+      <p>2. Which job belongs to the future?</p>
+      <label><input type="radio" name="q2" value="a"> App Developer</label><br>
+      <label><input type="radio" name="q2" value="b"> Knight</label><br>
+      <label><input type="radio" name="q2" value="c"> Typewriter Mechanic</label>
+    </div>
+
+    <div class="question">
+      <p>3. What is a challenge in choosing a job?</p>
+      <label><input type="radio" name="q3" value="a"> Easy success</label><br>
+      <label><input type="radio" name="q3" value="b"> Doubts, fear, pressure</label><br>
+      <label><input type="radio" name="q3" value="c"> No stress</label>
+    </div>
+
+    <button onclick="checkAnswers()">Check Answers</button>
+  </div>
+
+  <div class="handout" id="handout" style="display:none;">
+    <h2>📄 Best Jobs in the World – Handout</h2>
+
+    <h3>✅ What Makes a Job Great?</h3>
+    <ul>
+      <li>Good Money</li>
+      <li>Interesting</li>
+      <li>Future Opportunities</li>
+      <li>Helping People</li>
+    </ul>
+
+    <h3>💸 High-Paying Jobs</h3>
+    <ul>
+      <li>Senior Physician</li>
+      <li>Management Consultant</li>
+      <li>Banker in Investment Banking</li>
+      <li>Lawyer in a big chancellery</li>
+      <li>IT-Manager</li>
+    </ul>
+
+    <h3>🚀 Jobs of the Future</h3>
+    <ul>
+      <li>Nurse</li>
+      <li>Data Scientist</li>
+      <li>Wind Technician</li>
+      <li>Cybersecurity Expert</li>
+      <li>App Developer</li>
+    </ul>
+
+    <h3>⚠️ The Difficulties</h3>
+    <ul>
+      <li>Even Doubts</li>
+      <li>Luck</li>
+      <li>Fear</li>
+      <li>Pressure</li>
+      <li>Changes</li>
+    </ul>
+
+    <h3>🤖 Influence of Technology (AI)</h3>
+    <ul>
+      <li>Automation</li>
+      <li>Less Humanity</li>
+      <li>Goals</li>
+      <li>Costs</li>
+    </ul>
+
+    <h3>🌱 Green & Environmental Jobs</h3>
+    <ul>
+      <li>Factory and Assembly Line Workers</li>
+      <li>Drivers (Taxi, Truck, Delivery)</li>
+      <li>Cashiers</li>
+      <li>Customer Service Agents</li>
+      <li>Janitors and Cleaners</li>
+      <li>Basic Photo/Video Editors</li>
+    </ul>
+
+    <h3>🏠 Remote Jobs You Can Do from Home</h3>
+    <ul>
+      <li>Online Teacher</li>
+      <li>Freelance Writer</li>
+      <li>Virtual Assistant</li>
+      <li>Customer Support Agent</li>
+      <li>Digital Marketer</li>
+    </ul>
+
+    <h3>🗣️ Key Question</h3>
+    <p>There is no "best job in the world". Some like high-paying ones, others want to travel the world.</p>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const answers = {
+        q1: "b",
+        q2: "a",
+        q3: "b"
+      };
+
+      let correct = 0;
+
+      for (let key in answers) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === answers[key]) {
+          correct++;
+        }
+      }
+
+      if (correct === Object.keys(answers).length) {
+        document.getElementById("handout").style.display = "block";
+        document.getElementById("quiz").style.display = "none";
+        alert("Well done! Here's your handout.");
+      } else {
+        alert("Some answers are incorrect. Try again!");
+      }
+    }
+  </script>
+
+</body>
+</html>
